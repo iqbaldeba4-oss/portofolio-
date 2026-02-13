@@ -1,353 +1,303 @@
-<!doctype html>
-<html lang="id" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iqbal Raihan Fadilah - Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/_sdk/element_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
-  <style>
-    body {
-      box-sizing: border-box;
-    }
-    * {
-      font-family: 'Poppins', sans-serif;
-    }
-    .font-display {
-      font-family: 'Playfair Display', serif;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    .gradient-bg {
-      background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #ddd6fe 100%);
-    }
-    .card-gradient {
-      background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(245,243,255,0.95) 100%);
-    }
-    .purple-gradient {
-      background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #c4b5fd 100%);
-    }
-    .text-gradient {
-      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hover-lift {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .hover-lift:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
-    }
-    .animate-float {
-      animation: float 6s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-    .animate-fade-in {
-      animation: fadeIn 0.8s ease-out forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .skill-bar {
-      background: linear-gradient(90deg, #8b5cf6 0%, #a78bfa 100%);
-      transition: width 1s ease-out;
-    }
-    .nav-link {
-      position: relative;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #8b5cf6, #a78bfa);
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      opacity: 0.5;
-      animation: blob 7s infinite;
-    }
-    @keyframes blob {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -50px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -27px;
-      top: 8px;
-      width: 12px;
-      height: 12px;
-      background: #8b5cf6;
-      border-radius: 50%;
-      border: 3px solid #f5f3ff;
-    }
-  </style>
-  <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full gradient-bg text-gray-700">
-  <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Header -->
-   <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 py-4">
-     <nav class="flex items-center justify-between"><a href="#home" class="text-2xl font-bold text-gradient font-display" id="nav-name">Iqbal Raihan</a>
-      <div class="hidden md:flex items-center gap-8"><a href="#home" class="nav-link text-gray-600 hover:text-purple-600 transition-colors">Home</a> <a href="#about" class="nav-link text-gray-600 hover:text-purple-600 transition-colors">About</a> <a href="#skills" class="nav-link text-gray-600 hover:text-purple-600 transition-colors">Skills</a> <a href="#experience" class="nav-link text-gray-600 hover:text-purple-600 transition-colors">Experience</a> <a href="#contact" class="nav-link text-gray-600 hover:text-purple-600 transition-colors">Contact</a>
-      </div><button id="mobile-menu-btn" class="md:hidden text-purple-600">
-       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-       </svg></button>
-     </nav><!-- Mobile Menu -->
-     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-purple-100 pt-4">
-      <div class="flex flex-col gap-4"><a href="#home" class="text-gray-600 hover:text-purple-600 transition-colors">Home</a> <a href="#about" class="text-gray-600 hover:text-purple-600 transition-colors">About</a> <a href="#skills" class="text-gray-600 hover:text-purple-600 transition-colors">Skills</a> <a href="#experience" class="text-gray-600 hover:text-purple-600 transition-colors">Experience</a> <a href="#contact" class="text-gray-600 hover:text-purple-600 transition-colors">Contact</a>
-      </div>
-     </div>
-    </div>
-   </header><!-- Hero Section -->
-   <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"><!-- Decorative Blobs -->
-    <div class="blob w-72 h-72 bg-purple-300 top-20 left-10"></div>
-    <div class="blob w-96 h-96 bg-violet-200 bottom-20 right-10" style="animation-delay: -2s;"></div>
-    <div class="blob w-64 h-64 bg-fuchsia-200 top-1/2 left-1/3" style="animation-delay: -4s;"></div>
-    <div class="max-w-6xl mx-auto px-6 py-20 relative z-10">
-     <div class="flex flex-col lg:flex-row items-center gap-12"><!-- Profile Image -->
-      <div class="animate-float">
-       <div class="relative">
-        <div class="w-64 h-64 lg:w-80 lg:h-80 rounded-full purple-gradient p-1">
-         <div class="w-full h-full rounded-full bg-gradient-to-br from-purple-100 to-violet-200 flex items-center justify-center overflow-hidden">
-          <svg class="w-40 h-40 lg:w-48 lg:h-48 text-purple-400" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-          </svg>
-         </div>
-        </div><!-- Decorative Elements -->
-        <div class="absolute -top-4 -right-4 w-8 h-8 bg-purple-400 rounded-full animate-pulse"></div>
-        <div class="absolute -bottom-2 -left-2 w-6 h-6 bg-violet-300 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
-       </div>
-      </div><!-- Hero Text -->
-      <div class="text-center lg:text-left animate-fade-in">
-       <p class="text-purple-500 font-medium mb-2">👋 Hello, I'm</p>
-       <h1 class="text-4xl lg:text-6xl font-bold font-display mb-4"><span class="text-gradient" id="hero-name">Iqbal Raihan Fadilah</span></h1>
-       <p class="text-xl lg:text-2xl text-gray-600 mb-6 italic" id="hero-tagline">"I'm alr cook before I was born"</p>
-       <p class="text-gray-500 max-w-lg mb-8" id="hero-description">Seorang siswa dengan passion di bidang bahasa, khususnya Bahasa Inggris. Siap untuk terus belajar dan berkembang.</p>
-       <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"><a href="#portfolio" class="px-8 py-3 purple-gradient text-white rounded-full font-medium hover-lift shadow-lg shadow-purple-300/50"> Lihat Portfolio </a> <a href="#contact" class="px-8 py-3 bg-white text-purple-600 rounded-full font-medium hover-lift shadow-lg border-2 border-purple-200"> Hubungi Saya </a>
-       </div>
-      </div>
-     </div><!-- Scroll Indicator -->
-     <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
-     </div>
-    </div>
-   </section><!-- About Section -->
-   <section id="about" class="py-20 relative">
-    <div class="max-w-6xl mx-auto px-6">
-     <div class="text-center mb-16">
-      <p class="text-purple-500 font-medium mb-2">Kenali Saya</p>
-      <h2 class="text-3xl lg:text-4xl font-bold font-display text-gradient" id="about-title">Tentang Saya</h2>
-     </div>
-     <div class="grid lg:grid-cols-2 gap-12 items-center"><!-- About Image/Illustration -->
-      <div class="relative">
-       <div class="card-gradient rounded-3xl p-8 shadow-xl hover-lift">
-        <div class="aspect-square rounded-2xl bg-gradient-to-br from-purple-100 to-violet-200 flex items-center justify-center">
-         <svg class="w-48 h-48 text-purple-400" viewbox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
-         </svg>
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iqbal Raihan Fadilah | Portofolio Interactive Elegant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --maroon: #800000;
+            --maroon-dark: #4d0000;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #ffffff;
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+
+        h1, h2, h3, .font-serif { 
+            font-family: 'Playfair Display', serif; 
+        }
+
+        /* Animasi Floating Background */
+        .bg-emoji {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.04;
+            user-select: none;
+            pointer-events: none;
+            animation: float-around 20s infinite linear;
+        }
+
+        @keyframes float-around {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, 50px) rotate(10deg); }
+            66% { transform: translate(-20px, 20px) rotate(-10deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        /* Click Interaction Effect */
+        .click-emoji {
+            position: absolute;
+            pointer-events: none;
+            z-index: 9999;
+            animation: burst 0.8s ease-out forwards;
+            font-size: 24px;
+        }
+
+        @keyframes burst {
+            0% { transform: scale(0) translateY(0); opacity: 1; }
+            100% { transform: scale(1.5) translateY(-50px); opacity: 0; }
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1.5px;
+            background-color: var(--maroon);
+            margin: 20px auto 0;
+        }
+
+        .spotify-custom {
+            fill: var(--maroon);
+            transition: fill 0.3s ease, transform 0.3s ease;
+        }
+        .group:hover .spotify-custom {
+            fill: #1DB954;
+            transform: scale(1.1);
+        }
+
+        .profile-frame {
+            position: relative;
+            padding: 12px;
+            background: white;
+            border: 1px solid #f3f4f6;
+            box-shadow: 30px 30px 60px #e5e7eb, -10px -10px 40px #ffffff;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #fff; }
+        ::-webkit-scrollbar-thumb { background: var(--maroon); border-radius: 10px; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Dekorasi Latar Belakang -->
+    <div class="bg-emoji text-9xl top-10 left-10">🎶</div>
+    <div class="bg-emoji text-7xl top-1/4 right-20">📖</div>
+    <div class="bg-emoji text-8xl bottom-20 right-10">🎙️</div>
+    <div class="bg-emoji text-6xl bottom-1/3 left-20">✨</div>
+
+    <!-- Navigasi -->
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-lg border-b border-gray-100">
+        <div class="container mx-auto px-8 py-5 flex justify-center items-center relative">
+            <div class="flex space-x-10 text-[9px] font-bold uppercase tracking-[0.4em]">
+                <a href="#home" class="hover:text-[#800000] transition-colors relative group">Home</a>
+                <a href="#about" class="hover:text-[#800000] transition-colors relative group">Tentang</a>
+                <a href="#experience" class="hover:text-[#800000] transition-colors relative group">Organisasi</a>
+                <a href="#contact" class="hover:text-[#800000] transition-colors relative group">Kontak</a>
+            </div>
+            
+            <div class="absolute right-8 flex items-center space-x-4">
+                <span class="text-[10px] text-gray-400 font-light hidden sm:block">Subang, ID</span>
+                <div class="w-2 h-2 rounded-full bg-maroon animate-pulse"></div>
+            </div>
         </div>
-       </div><!-- Decorative -->
-       <div class="absolute -z-10 top-4 left-4 w-full h-full bg-purple-200 rounded-3xl"></div>
-      </div><!-- About Content -->
-      <div class="space-y-6">
-       <div class="card-gradient rounded-2xl p-6 shadow-lg hover-lift">
-        <div class="flex items-start gap-4">
-         <div class="w-12 h-12 purple-gradient rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">📚</span>
-         </div>
-         <div>
-          <h3 class="font-semibold text-lg mb-2">Latar Belakang</h3>
-          <p class="text-gray-600">Saya seorang siswa di sekolah top 1000 di Indonesia. Saya memiliki ketertarikan tinggi pada bahasa, sering mendengarkan musik luar negeri dan menonton film luar negeri untuk meningkatkan kemampuan bahasa saya.</p>
-         </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-8 flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="1200">
+                <h1 class="text-6xl md:text-8xl font-bold mb-8 text-slate-900 leading-[1.1]">Iqbal Raihan Fadilah</h1>
+                <p class="text-xl text-gray-400 mb-12 font-light italic max-w-lg leading-relaxed">
+                    “I'm already cooked before I was born.”
+                </p>
+                <div class="flex items-center gap-8">
+                    <a href="#about" class="bg-maroon text-white px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-black transition-all duration-500 shadow-2xl">
+                        Mulai
+                    </a>
+                    <div class="h-[1px] w-20 bg-gray-200"></div>
+                    <a href="https://www.instagram.com/ikubaruuuuuu" target="_blank" class="text-[10px] font-bold uppercase tracking-widest hover:text-maroon transition-colors">
+                        Socials
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center" data-aos="zoom-out" data-aos-duration="1500">
+                <div class="profile-frame">
+                    <div class="w-72 h-[420px] md:w-80 md:h-[500px] overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/d/1wIaggxalrhou5i_SBmjKtJvuBoQSVkKe" 
+                             alt="Iqbal Raihan Fadilah" 
+                             class="w-full h-full object-cover transition-transform duration-[3000ms] hover:scale-110"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Iqbal+Raihan&size=512&background=800000&color=fff'">
+                    </div>
+                </div>
+            </div>
         </div>
-       </div>
-       <div class="card-gradient rounded-2xl p-6 shadow-lg hover-lift">
-        <div class="flex items-start gap-4">
-         <div class="w-12 h-12 purple-gradient rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎯</span>
-         </div>
-         <div>
-          <h3 class="font-semibold text-lg mb-2">Minat &amp; Tujuan</h3>
-          <p class="text-gray-600">Minat saya ada di bahasa, apalagi di bahasa Inggris. Tujuan saya adalah lulus dan masuk perguruan tinggi terbaik dalam bidang bahasa Inggris.</p>
-         </div>
+    </section>
+
+    <!-- About Me & Spotify Section Combined -->
+    <section id="about" class="py-32 bg-slate-50 border-y border-gray-100">
+        <div class="container mx-auto px-8">
+            <div class="flex flex-col lg:flex-row gap-20 items-center">
+                <!-- Left: Text About -->
+                <div class="lg:w-2/3" data-aos="fade-up">
+                    <h2 class="text-4xl font-serif italic mb-8">Tentang Saya</h2>
+                    <div class="space-y-6 text-gray-600 font-light leading-relaxed max-w-2xl">
+                        <p>
+                            Seorang individu yang memiliki ketertarikan mendalam pada dunia linguistik dan seni vokal. Sebagai siswa yang aktif di SMAN 1 Subang, saya percaya bahwa disiplin dan empati adalah kunci utama dalam membangun karakter yang kuat.
+                        </p>
+                        <p>
+                            Melalui pengalaman di organisasi PMR, saya belajar bagaimana mengelola tanggung jawab besar dan menjaga integritas tim. Saya adalah pribadi yang komunikatif, sosialis, dan selalu berupaya memberikan dampak positif bagi lingkungan sekitar.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Spotify Custom Integrated -->
+                <div class="lg:w-1/3 flex flex-col items-center justify-center p-12 bg-white shadow-sm border border-gray-100 rounded-sm" data-aos="fade-left">
+                    <p class="text-[9px] uppercase tracking-[0.6em] text-gray-400 mb-8">Playlist Inspirasi</p>
+                    <a href="https://open.spotify.com/playlist/5LvCbPwOD56oV1TFM3jawt" target="_blank" class="group flex flex-col items-center space-y-4">
+                        <!-- Logo Spotify Custom -->
+                        <svg class="spotify-custom w-16 h-16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.503 17.306c-.218.358-.684.474-1.042.256-2.872-1.754-6.485-2.152-10.741-1.177-.41.094-.82-.164-.914-.573-.094-.41.164-.82.573-.914 4.656-1.066 8.653-.615 11.868 1.348.358.218.474.684.256 1.06zm1.468-3.26c-.274.446-.856.59-1.302.316-3.287-2.02-8.3-2.614-12.185-1.436-.502.153-1.03-.134-1.183-.636-.153-.502.134-1.03.636-1.183 4.453-1.35 10.003-.687 13.818 1.654.446.274.59.856.316 1.302zm.128-3.415c-3.943-2.34-10.453-2.557-14.237-1.408-.604.183-1.246-.165-1.43-.77-.183-.604.165-1.246.77-1.43 4.354-1.322 11.536-1.065 16.082 1.632.543.322.72 1.026.398 1.57-.322.543-1.026.72-1.583.406z"/>
+                        </svg>
+                        <span class="text-[10px] font-bold tracking-widest uppercase group-hover:text-maroon transition-colors">Listen on Spotify</span>
+                    </a>
+                </div>
+            </div>
         </div>
-       </div>
-       <div class="card-gradient rounded-2xl p-6 shadow-lg hover-lift">
-        <div class="flex items-start gap-4">
-         <div class="w-12 h-12 purple-gradient rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎵</span>
-         </div>
-         <div>
-          <h3 class="font-semibold text-lg mb-2">Musik Favorit</h3>
-          <p class="text-gray-600 mb-3">Saya suka mendengarkan berbagai genre musik untuk memperkaya kosakata dan pemahaman bahasa.</p><a href="https://open.spotify.com/track/53iuhJlwXhSER5J2IYYv1W?si=fqL9gC7BRYKptmcIHUuPSg" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-full text-sm hover:bg-green-600 transition-colors">
-           <svg class="w-4 h-4" viewbox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
-           </svg> Dengarkan di Spotify </a>
-         </div>
+    </section>
+
+    <!-- Experience & Organization Section -->
+    <section id="experience" class="py-32">
+        <div class="container mx-auto px-8">
+            <div class="text-center mb-24" data-aos="fade-up">
+                <h2 class="text-4xl font-serif italic mb-4">Pengalaman & Organisasi</h2>
+                <div class="section-title"></div>
+            </div>
+
+            <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <div class="space-y-12" data-aos="fade-right">
+                    <div class="group border-l-2 border-maroon pl-8 py-2 hover:bg-slate-50 transition-all duration-500">
+                        <span class="text-[10px] font-bold text-maroon tracking-[0.4em] uppercase">2023 — Sekarang</span>
+                        <h3 class="text-2xl font-serif mt-2 mb-4">PMR SMAN 1 Subang</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <span class="w-8 h-[1px] bg-maroon"></span>
+                                <span class="text-xs font-bold uppercase tracking-widest">Ketua Divisi Kebersihan</span>
+                            </div>
+                            <p class="text-[11px] text-gray-400 pl-12">Mengelola program sanitasi sekolah dan memastikan fasilitas kesehatan organisasi tetap terjaga.</p>
+                            
+                            <div class="flex items-center gap-4">
+                                <span class="w-8 h-[1px] bg-maroon"></span>
+                                <span class="text-xs font-bold uppercase tracking-widest">Komisi Disiplin (Komdis)</span>
+                            </div>
+                            <p class="text-[11px] text-gray-400 pl-12">Bertanggung jawab atas ketertiban kader dan integritas organisasi selama masa pendidikan anggota baru.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-12" data-aos="fade-left">
+                    <div class="group border-l-2 border-maroon pl-8 py-2 hover:bg-slate-50 transition-all duration-500">
+                        <span class="text-[10px] font-bold text-maroon tracking-[0.4em] uppercase">Kepanitiaan Event</span>
+                        <h3 class="text-2xl font-serif mt-2 mb-4">Rekam Jejak Event</h3>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="text-sm font-bold uppercase tracking-widest mb-1">PGP Perjumsa (Panitia Kesehatan)</h4>
+                                <p class="text-[11px] text-gray-400 tracking-wider mb-2">2024 — 2025 (2 Periode)</p>
+                                <p class="text-xs text-gray-500 leading-relaxed font-light">Menjadi tim medis lapangan utama dalam menangani kesehatan peserta selama perkemahan berlangsung.</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-sm font-bold uppercase tracking-widest mb-1">Diklat Kader Baru</h4>
+                                <p class="text-[11px] text-gray-400 tracking-wider mb-2">Mentor & Pengawas</p>
+                                <p class="text-xs text-gray-500 leading-relaxed font-light">Membimbing calon anggota dalam memahami nilai kemanusiaan dan kedisiplinan PMR.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-       </div>
-       <div class="card-gradient rounded-2xl p-6 shadow-lg hover-lift">
-        <div class="flex items-start gap-4">
-         <div class="w-12 h-12 purple-gradient rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">⭐</span>
-         </div>
-         <div>
-          <h3 class="font-semibold text-lg mb-2">Nilai Pribadi</h3>
-          <p class="text-gray-600">Memiliki jiwa sosialis yang tinggi dan mudah bergaul dengan berbagai kalangan.</p>
-         </div>
+    </section>
+
+    <!-- Skills Summary -->
+    <section id="skills" class="py-24 bg-slate-900 text-white">
+        <div class="container mx-auto px-8 text-center">
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div data-aos="fade-up">
+                    <span class="text-maroon text-3xl mb-4 block">🇬🇧</span>
+                    <h5 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-2">Linguistik</h5>
+                    <p class="text-xs text-gray-400 font-light">Fokus pada penguasaan Bahasa Inggris secara natural dan aplikatif.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <span class="text-maroon text-3xl mb-4 block">🎤</span>
+                    <h5 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-2">Seni Vokal</h5>
+                    <p class="text-xs text-gray-400 font-light">Kemampuan suara yang dilatih melalui apresiasi musik internasional.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <span class="text-maroon text-3xl mb-4 block">🤝</span>
+                    <h5 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-2">Kepemimpinan</h5>
+                    <p class="text-xs text-gray-400 font-light">Karakter yang terbentuk melalui tanggung jawab struktural organisasi.</p>
+                </div>
+            </div>
         </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Education Timeline -->
-   <section class="py-20 bg-white/50">
-    <div class="max-w-6xl mx-auto px-6">
-     <div class="text-center mb-16">
-      <p class="text-purple-500 font-medium mb-2">Perjalanan</p>
-      <h2 class="text-3xl lg:text-4xl font-bold font-display text-gradient">Pendidikan</h2>
-     </div>
-     <div class="max-w-2xl mx-auto">
-      <div class="relative border-l-2 border-purple-200 pl-8 space-y-8">
-       <div class="timeline-item relative card-gradient rounded-2xl p-6 shadow-lg hover-lift"><span class="text-sm text-purple-500 font-medium">Sekarang</span>
-        <h3 class="text-xl font-semibold mt-1">SMAN 1 Subang</h3>
-        <p class="text-gray-600 mt-2">Menempuh pendidikan menengah atas dengan fokus pada pengembangan kemampuan bahasa.</p>
-       </div>
-       <div class="timeline-item relative card-gradient rounded-2xl p-6 shadow-lg hover-lift"><span class="text-sm text-purple-500 font-medium">Sebelumnya</span>
-        <h3 class="text-xl font-semibold mt-1">SMPN 1 Cijambe</h3>
-        <p class="text-gray-600 mt-2">Memulai perjalanan organisasi dan pengembangan soft skills.</p>
-       </div>
-       <div class="timeline-item relative card-gradient rounded-2xl p-6 shadow-lg hover-lift"><span class="text-sm text-purple-500 font-medium">Awal</span>
-        <h3 class="text-xl font-semibold mt-1">SDN Samratulangi</h3>
-        <p class="text-gray-600 mt-2">Fondasi pendidikan dasar dan pembentukan karakter.</p>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Skills Section -->
-   <section id="skills" class="py-20">
-    <div class="max-w-6xl mx-auto px-6">
-     <div class="text-center mb-16">
-      <p class="text-purple-500 font-medium mb-2">Kemampuan</p>
-      <h2 class="text-3xl lg:text-4xl font-bold font-display text-gradient">Keahlian Saya</h2>
-     </div>
-     <div class="grid md:grid-cols-2 gap-8"><!-- Hard Skills -->
-      <div class="card-gradient rounded-3xl p-8 shadow-xl hover-lift">
-       <div class="flex items-center gap-3 mb-6">
-        <div class="w-12 h-12 purple-gradient rounded-xl flex items-center justify-center"><span class="text-2xl">💪</span>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 bg-white relative">
+        <div class="container mx-auto px-8 text-center" data-aos="fade-up">
+            <h2 class="text-5xl md:text-7xl font-serif italic mb-12">Kontak.</h2>
+            <div class="flex flex-wrap justify-center gap-12 mb-20">
+                <a href="mailto:iqbalraihanfadilah@gmail.com" class="group flex items-center gap-4 border-b border-gray-200 pb-2 hover:border-maroon transition-all">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-gray-400 group-hover:text-maroon">Email</span>
+                </a>
+                <a href="https://wa.me/6287825720716" class="group flex items-center gap-4 border-b border-gray-200 pb-2 hover:border-maroon transition-all">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-gray-400 group-hover:text-maroon">WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/ikubaruuuuuu" target="_blank" class="group flex items-center gap-4 border-b border-gray-200 pb-2 hover:border-maroon transition-all">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-gray-400 group-hover:text-maroon">Instagram</span>
+                </a>
+            </div>
+            <p class="text-[9px] text-gray-300 uppercase tracking-[0.8em]">&copy; 2026 Iqbal Raihan Fadilah</p>
         </div>
-        <h3 class="text-xl font-semibold">Hard Skills</h3>
-       </div>
-       <div class="space-y-5">
-        <div>
-         <div class="flex justify-between mb-2"><span class="font-medium">Bernyanyi</span> <span class="text-purple-500">85%</span>
-         </div>
-         <div class="h-3 bg-purple-100 rounded-full overflow-hidden">
-          <div class="skill-bar h-full rounded-full" style="width: 85%;"></div>
-         </div>
-        </div>
-        <div>
-         <div class="flex justify-between mb-2"><span class="font-medium">Bahasa Inggris</span> <span class="text-purple-500">80%</span>
-         </div>
-         <div class="h-3 bg-purple-100 rounded-full overflow-hidden">
-          <div class="skill-bar h-full rounded-full" style="width: 80%;"></div>
-         </div>
-        </div>
-        <div>
-         <div class="flex justify-between mb-2"><span class="font-medium">Public Speaking</span> <span class="text-purple-500">75%</span>
-         </div>
-         <div class="h-3 bg-purple-100 rounded-full overflow-hidden">
-          <div class="skill-bar h-full rounded-full" style="width: 75%;"></div>
-         </div>
-        </div>
-       </div>
-      </div><!-- Soft Skills -->
-      <div class="card-gradient rounded-3xl p-8 shadow-xl hover-lift">
-       <div class="flex items-center gap-3 mb-6">
-        <div class="w-12 h-12 purple-gradient rounded-xl flex items-center justify-center"><span class="text-2xl">🧠</span>
-        </div>
-        <h3 class="text-xl font-semibold">Soft Skills</h3>
-       </div>
-       <div class="space-y-5">
-        <div>
-         <div class="flex justify-between mb-2"><span class="font-medium">Komunikasi</span> <span class="text-purple-500">90%</span>
-         </div>
-         <div class="h-3 bg-purple-100 rounded-full overflow-hidden">
-          <div class="skill-bar h-full rounded-full" style="width: 90%;"></div>
-         </div>
-        </div>
-        <div>
-         <div class="flex justify-between mb-2"><span class="font-medium">Kerja Tim</span> <span class="text-purple-500">85%</span>
-         </div>
-         <div class="h-3 bg-purple-100 rounded-full overflow-hidden">
-          <div class="skill-bar h-full rounded-full" style="width: 85%;"></div>
-         </div>
-        </div>
-        <div>
-         <div class="flex justify-between mb-2"><span class="font-medium">Kepemimpinan</span> <span class="text-purple-500">80%</span>
-         </div>
-         <div class="h-3 bg-purple-100 rounded-full overflow-hidden">
-          <div class="skill-bar h-full rounded-full" style="width: 80%;"></div>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Experience Section -->
-   <section id="experience" class="py-20 bg-white/50">
-    <div class="max-w-6xl mx-auto px-6">
-     <div class="text-center mb-16">
-      <p class="text-purple-500 font-medium mb-2">Pengalaman</p>
-      <h2 class="text-3xl lg:text-4xl font-bold font-display text-gradient">Organisasi &amp; Prestasi</h2>
-     </div>
-     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="card-gradient rounded-2xl p-6 shadow-lg hover-lift">
-       <div class="w-14 h-14 purple-gradient rounded-2xl flex items-center justify-center mb-4"><span class="text-3xl">🏥</span>
-       </div>
-       <h3 class="font-semibold text-lg mb-2">Seksi Kebersihan PMR</h3>
-       <p class="text-gray-600 text-sm">SMAN 1 Subang</p>
-       <p class="text-purple-500 text-sm mt-2">Bertanggung jawab menjaga kebersihan dan kesehatan lingkungan</p>
-      </div>
-      <div class="card-gradient rounded-2xl p-6 shadow-lg hover-lift">
-       <div class="w-14 h-14 purple-gradient rounded-2xl flex items-center justify-center mb-4"><span class="text-3xl">⚖️</span>
-       </div>
-       <h3 class="font-semibold text-lg mb-2">Komisi Disiplin Diklat PMR</h3>
-       <p class="text-gray-600 text-sm">SMAN 1 Subang</p>
-       <p class="text-purple-500 text-sm mt-2">Menegakkan kedisiplinan dalam kegiatan pelatihan PMR</p>
-      </div>
-      <div class="card-gradient rounded-2xl p-6 shadow-lg hover-lift">
-       <div class="w-14 h-14 purple-gradient rounded-2xl flex items-center justify-center mb-4"><span class="text-3xl">🎗️</span>
-       </div>
-       <h3 class="font-semibold text-lg mb-2">Panitia Kesehatan PGP Perjumsa</h3>
-       <p class="text-gray-600 text-sm">SMAN 1 Subang • 2 Tahun Berturut-turut</p>
-       <p class="text-purple-500 text-sm mt-2">Mengelola layanan kesehatan dalam acara besar sekolah</p>
-      </div>
-     </div>
-    </div>
-   </section><!-- Contact Section -->
-   <section id="contact" class="py-20">
-    <div class="max-w-6xl mx-auto px-6">
-     <div class="text-center mb-16">
-      <p class="text-purple-500 font-medium mb-2">Mari Terhubung</p>
-      <h2 class="text-3xl lg:text-4xl font-bold font-display text-gradient">Hubungi Saya</h2>
-     </div>
-     <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"><!-- Email --> <a href="mailto:iqbalraihanfadilah@gmail.com" class="card-gradient rounded-2xl p-6 shadow-lg hover-lift text-center group">
-       <div class="w-16 h-16 purple-gradient rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-       </div><h3 class="font-semibold mb-2">Email</h3><p class="text-gray-600 text-sm break-all
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: false, mirror: true });
+
+        // Interactive Click Emojis
+        const emojis = ['🎶', '✨', '🎙️', '📚', '🇬🇧', '🎧', '🎵'];
+        document.addEventListener('click', (e) => {
+            const burst = document.createElement('div');
+            burst.className = 'click-emoji';
+            burst.style.left = `${e.pageX - 12}px`;
+            burst.style.top = `${e.pageY - 12}px`;
+            burst.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            document.body.appendChild(burst);
+            setTimeout(() => burst.remove(), 800);
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
